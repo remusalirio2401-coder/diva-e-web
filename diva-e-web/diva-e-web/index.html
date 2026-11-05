@@ -1,0 +1,890 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#2a0a19">
+<meta name="description" content="DIVA E: donde la ciencia, la belleza y el ser se encuentran. Descubre el universo de Diva Elisa Bustamante.">
+<title>DIVA E · La ciencia, la belleza, el ser</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --wine:#2a0a19;--wine-2:#3d0f24;--burgundy:#5a1530;
+  --gold:#c9a46f;--gold-soft:#e7ceb0;--blush:#f1c2cc;
+  --paper:#f5eee6;--paper-2:#e9d2d2;--paper-3:#efe4dc;
+  --text:#26131a;--text-soft:#5d4650;--line:#26131a26;
+  --serif:'Playfair Display',Georgia,'Times New Roman',serif;
+  --sans:'DM Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  color-scheme:light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#1d0812;--paper-2:#2b0d1c;--paper-3:#24091a;
+    --text:#f3e7e1;--text-soft:#cbb2b8;--line:#f3e7e126;color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#1d0812;--paper-2:#2b0d1c;--paper-3:#24091a;
+  --text:#f3e7e1;--text-soft:#cbb2b8;--line:#f3e7e126;color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:calc(80px + env(safe-area-inset-top,0px));-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.65;overflow-x:hidden}
+body.locked{overflow:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;padding:0}
+h1,h2,h3{font-family:var(--serif);font-weight:400;margin:0;letter-spacing:-.025em}
+p{margin:0}
+:focus-visible{outline:2px solid var(--gold);outline-offset:4px;border-radius:4px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.kicker{font-size:13px;font-weight:500;letter-spacing:.04em;color:var(--gold)}
+.on-light .kicker{color:#9a7445}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .on-light .kicker{color:var(--gold)}}
+:root[data-theme="dark"] .on-light .kicker{color:var(--gold)}
+.wrap{padding-left:max(6vw,22px);padding-right:max(6vw,22px)}
+.line-mask{display:block;overflow:hidden;padding-bottom:.08em;margin-bottom:-.08em}
+.line-mask>span{display:block}
+
+/* ---------- Botones ---------- */
+.btn{display:inline-flex;align-items:center;gap:28px;padding:16px 22px 16px 26px;border-radius:999px;font-size:14px;font-weight:600;letter-spacing:.01em;transition:transform .35s cubic-bezier(.2,.8,.2,1),background .3s,color .3s;position:relative;overflow:hidden;isolation:isolate}
+.btn .arrow{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-size:14px;transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+.btn:hover{transform:translateY(-2px)}
+.btn:hover .arrow{transform:rotate(45deg)}
+.btn-gold{background:var(--gold-soft);color:var(--wine)}
+.btn-gold .arrow{background:var(--wine);color:var(--gold-soft)}
+.btn-ghost{border:1px solid #ffffff55;color:#fff}
+.btn-ghost .arrow{background:#ffffff1f}
+.btn-wine{background:var(--wine);color:#fff}
+.btn-wine .arrow{background:var(--gold-soft);color:var(--wine)}
+
+/* ---------- Intro ---------- */
+#intro{position:fixed;inset:0;z-index:100;display:grid;place-items:center;color:var(--paper);pointer-events:auto}
+#intro .curtain{position:absolute;left:0;right:0;height:50.5%;background:radial-gradient(120% 120% at 50% 100%,#5c1b35 0%,var(--wine) 62%);}
+#intro .curtain.top{top:0}
+#intro .curtain.bottom{bottom:0;background:radial-gradient(120% 120% at 50% 0%,#5c1b35 0%,var(--wine) 62%)}
+#intro .intro-inner{position:relative;text-align:center;display:flex;flex-direction:column;align-items:center;gap:26px;padding:24px}
+.intro-logo{font:400 clamp(5.2rem,17vw,15rem)/.9 var(--serif);letter-spacing:-.07em;display:flex;align-items:flex-end;color:#f7ece6}
+.intro-logo .ch{display:inline-block;overflow:hidden;padding:0 .01em .06em}
+.intro-logo .ch>span{display:inline-block}
+.intro-logo .e{font-style:italic;color:var(--gold);margin-left:.08em}
+.intro-rule{width:min(320px,60vw);height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);transform-origin:center}
+.intro-sub{font-size:15px;color:#e4c9cf;letter-spacing:.02em}
+.intro-actions{display:flex;flex-direction:column;align-items:center;gap:14px}
+.intro-skip{font-size:13px;color:#d5b7bd;text-decoration:underline;text-underline-offset:4px}
+#intro.gone{display:none}
+
+/* ---------- Header ---------- */
+.topbar{position:fixed;z-index:50;top:0;left:0;right:0;padding-top:env(safe-area-inset-top,0px);color:#fff;transition:background .45s,backdrop-filter .45s,border-color .45s;border-bottom:1px solid #ffffff22}
+.topbar-in{height:76px;display:flex;align-items:center;justify-content:space-between}
+.topbar.solid{background:#2a0a19d9;-webkit-backdrop-filter:blur(14px) saturate(1.2);backdrop-filter:blur(14px) saturate(1.2);border-color:#ffffff14}
+.wordmark{font:400 28px/1 var(--serif);letter-spacing:-.05em;white-space:nowrap}
+.wordmark i{color:var(--gold)}
+.topbar nav{display:flex;gap:30px}
+.topbar nav a{font-size:13.5px;opacity:.82;transition:opacity .25s;position:relative}
+.topbar nav a::after{content:"";position:absolute;left:0;right:100%;bottom:-6px;height:1px;background:var(--gold);transition:right .35s}
+.topbar nav a:hover{opacity:1}
+.topbar nav a:hover::after{right:0}
+.menu-btn{display:none;width:44px;height:44px;place-items:center}
+.menu-btn span{display:block;width:22px;height:1.5px;background:#fff;position:relative;transition:transform .3s}
+.menu-btn span::before,.menu-btn span::after{content:"";position:absolute;left:0;width:22px;height:1.5px;background:#fff;transition:transform .3s}
+.menu-btn span::before{top:-7px}.menu-btn span::after{top:7px}
+.menu-open .menu-btn span{background:transparent}
+.menu-open .menu-btn span::before{transform:translateY(7px) rotate(45deg)}
+.menu-open .menu-btn span::after{transform:translateY(-7px) rotate(-45deg)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:#2a0a19d9;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+
+/* ---------- HUD lateral ---------- */
+.hud{position:fixed;right:max(2.2vw,14px);top:50%;transform:translateY(-50%);z-index:40;display:flex;flex-direction:column;gap:16px;opacity:0;pointer-events:none;transition:opacity .5s}
+.hud.show{opacity:1;pointer-events:auto}
+.hud a{display:flex;align-items:center;justify-content:flex-end;gap:12px;font-size:12px;color:var(--hud,#26131a)}
+.hud a .lbl{opacity:0;transform:translateX(6px);transition:opacity .3s,transform .3s;white-space:nowrap;font-weight:500}
+.hud a .dot{width:8px;height:8px;border-radius:50%;border:1px solid currentColor;transition:transform .35s,background .35s}
+.hud a.active .dot{background:var(--gold);border-color:var(--gold);transform:scale(1.5)}
+.hud a.active .lbl,.hud a:hover .lbl{opacity:1;transform:none}
+.hud.dark{--hud:#f5e8e3}
+.progress{position:fixed;left:0;top:0;height:2px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:var(--gold);z-index:70;margin-top:env(safe-area-inset-top,0px)}
+
+/* ---------- Cursor ---------- */
+.cursor{position:fixed;left:0;top:0;width:34px;height:34px;margin:-17px 0 0 -17px;border-radius:50%;border:1px solid var(--gold);pointer-events:none;z-index:200;transition:width .3s,height .3s,margin .3s,background .3s,opacity .3s;opacity:0;mix-blend-mode:normal}
+.cursor.on{opacity:1}
+.cursor.big{width:76px;height:76px;margin:-38px 0 0 -38px;background:#c9a46f22}
+.cursor-dot{position:fixed;left:0;top:0;width:5px;height:5px;margin:-2.5px 0 0 -2.5px;border-radius:50%;background:var(--gold);pointer-events:none;z-index:201;opacity:0}
+.cursor-dot.on{opacity:1}
+
+/* ---------- Hero ---------- */
+.hero{min-height:100vh;min-height:100svh;background:var(--wine);color:#fff;position:relative;overflow:hidden;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:4vw;padding-top:110px;padding-bottom:70px}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 70% at 78% 45%,#6a223f 0%,transparent 70%),radial-gradient(40% 40% at 10% 90%,#4a1026 0%,transparent 70%);pointer-events:none}
+.hero-copy{position:relative;z-index:2}
+.hero-copy .kicker{display:flex;align-items:center;gap:14px}
+.hero-copy .kicker::before{content:"";width:40px;height:1px;background:var(--gold)}
+.hero h1{font-size:clamp(3.6rem,8.2vw,8.6rem);line-height:.98;margin:28px 0 30px}
+.hero h1 em{color:var(--blush)}
+.hero-copy p{max-width:430px;font-size:17px;line-height:1.7;color:#ecd9dc}
+.hero-cta{margin-top:40px;display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+.hero-cta .scroll-hint{font-size:13px;color:#d9bcc3;display:flex;align-items:center;gap:10px}
+.scroll-hint i{display:block;width:1px;height:34px;background:linear-gradient(var(--gold),transparent);animation:drip 2.2s ease-in-out infinite}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+.hero-art{position:relative;z-index:1;justify-self:center;width:min(440px,38vw);aspect-ratio:3/4}
+.arch{border-radius:999px 999px 26px 26px;overflow:hidden;position:relative}
+.hero-art .arch{position:absolute;inset:0;box-shadow:0 40px 90px #12030ab0}
+.hero-art .arch img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;transform:scale(1.12)}
+.hero-art .halo{position:absolute;inset:-18px -18px 22px 22px;border:1px solid var(--gold);border-radius:999px 999px 30px 30px;opacity:.7}
+.hero-art .seal{position:absolute;left:-58px;bottom:56px;width:124px;height:124px;z-index:3}
+.seal svg{width:100%;height:100%;animation:spin 22s linear infinite}
+.seal b{position:absolute;inset:0;display:grid;place-items:center;font:italic 400 30px/1 var(--serif);color:var(--gold)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hero-foot{position:absolute;left:0;right:0;bottom:22px;display:flex;justify-content:space-between;font-size:12.5px;color:#cfaeb6;z-index:2}
+
+/* ---------- Marquee ---------- */
+.marquee{background:var(--blush);color:var(--wine);overflow:hidden;padding:20px 0;border-block:1px solid #2a0a1922}
+.marquee-track{display:flex;width:max-content;font:italic 400 clamp(1.6rem,3vw,2.6rem)/1 var(--serif);white-space:nowrap;will-change:transform}
+.marquee-track span{padding-right:2.2rem;display:flex;align-items:center;gap:2.2rem}
+.marquee-track span::after{content:"✦";font-style:normal;font-size:.55em;color:#8e3a52}
+
+/* ---------- Mundos ---------- */
+.worlds-sec{padding-top:130px;padding-bottom:130px;background:var(--paper)}
+.worlds-head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:56px;flex-wrap:wrap}
+.worlds-head h2{font-size:clamp(2.8rem,6vw,5.8rem);line-height:1.02}
+.worlds-head h2 em{color:#8e3a52}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .worlds-head h2 em{color:var(--blush)}}
+:root[data-theme="dark"] .worlds-head h2 em{color:var(--blush)}
+.worlds-head p{max-width:330px;color:var(--text-soft)}
+.worlds{display:flex;gap:12px;height:560px}
+.world{flex:1;position:relative;border-radius:22px;overflow:hidden;color:#fff;transition:flex .8s cubic-bezier(.2,.8,.2,1);min-width:0;background:var(--wine)}
+.world img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.08);transition:transform 1.2s cubic-bezier(.2,.8,.2,1),filter .8s;filter:saturate(.75) brightness(.8)}
+.world::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#2a0a1922 0%,#2a0a19 92%)}
+.world .w-in{position:absolute;inset:auto 0 0 0;padding:26px;z-index:2}
+.world .w-num{position:absolute;top:22px;left:24px;z-index:2;font:italic 400 22px/1 var(--serif);color:var(--gold)}
+.world h3{font-size:clamp(1.5rem,2.1vw,2.2rem);line-height:1.05;white-space:nowrap}
+.world .w-desc{max-height:0;opacity:0;overflow:hidden;font-size:15px;color:#ecd9dc;transition:max-height .6s,opacity .5s,margin .5s;max-width:300px}
+.world .w-go{position:absolute;top:18px;right:18px;z-index:2;width:42px;height:42px;border-radius:50%;border:1px solid #ffffff55;display:grid;place-items:center;transition:transform .5s,background .4s,color .4s}
+.world:hover,.world:focus-visible,.world.open{flex:2.7}
+.world:hover img,.world:focus-visible img,.world.open img{transform:scale(1);filter:saturate(1) brightness(.92)}
+.world:hover .w-desc,.world:focus-visible .w-desc,.world.open .w-desc{max-height:120px;opacity:1;margin-top:10px}
+.world:hover .w-go,.world:focus-visible .w-go,.world.open .w-go{background:var(--gold-soft);color:var(--wine);border-color:transparent;transform:rotate(45deg)}
+.world.vial-bg{background:radial-gradient(70% 60% at 50% 45%,#6a223f,var(--wine))}
+.world.vial-bg img{object-fit:contain;padding:60px 20% 140px;filter:none;transform:scale(1)}
+.world.mirror-bg{background:linear-gradient(160deg,#e9c9cf,#a5677b 60%,#4a1026)}
+
+/* ---------- Historia ---------- */
+.story{padding-top:140px;padding-bottom:140px;display:grid;grid-template-columns:1fr 1fr;gap:7vw;align-items:center;background:var(--paper-3)}
+.story h2{font-size:clamp(2.8rem,5.6vw,5.6rem);line-height:1.02;margin:22px 0 30px}
+.story h2 em{color:#8e3a52}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .story h2 em{color:var(--blush)}}
+:root[data-theme="dark"] .story h2 em{color:var(--blush)}
+.story-lead{max-width:520px;color:var(--text-soft);font-size:17px}
+.story-lead strong{color:var(--text);font-weight:600}
+.chapters{margin-top:42px;border-top:1px solid var(--line)}
+.chapter{width:100%;display:grid;grid-template-columns:44px 1fr 24px;align-items:center;text-align:left;padding:18px 0;border-bottom:1px solid var(--line);font-size:17px;transition:color .3s,padding .4s}
+.chapter .n{font:italic 400 16px var(--serif);color:var(--text-soft)}
+.chapter .plus{width:24px;height:24px;position:relative}
+.chapter .plus::before,.chapter .plus::after{content:"";position:absolute;left:5px;right:5px;top:11.5px;height:1px;background:currentColor;transition:transform .4s}
+.chapter .plus::after{transform:rotate(90deg)}
+.chapter.active{color:#8e3a52;padding-left:6px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .chapter.active{color:var(--blush)}}
+:root[data-theme="dark"] .chapter.active{color:var(--blush)}
+.chapter.active .plus::after{transform:rotate(0)}
+.chapter-panel{overflow:hidden;height:0;transition:height .5s cubic-bezier(.2,.8,.2,1)}
+.chapter-panel p{padding:0 0 22px 44px;color:var(--text-soft);max-width:560px}
+.draft{display:block;margin-top:22px;font-size:12.5px;color:var(--text-soft);opacity:.75}
+.story-art{position:relative;height:min(720px,80vh);min-height:520px}
+.story-art .a1{position:absolute;right:0;top:0;width:68%;height:84%}
+.story-art .a2{position:absolute;left:0;bottom:0;width:44%;height:52%;border:8px solid var(--paper-3);border-radius:999px 999px 26px 26px}
+.story-art img{width:100%;height:115%;object-fit:cover;object-position:50% 30%}
+.story-art .stamp{position:absolute;right:4%;bottom:2%;font:italic 400 20px/1.25 var(--serif);text-align:right;color:var(--text-soft)}
+
+/* ---------- Academia ---------- */
+.academy{padding-top:140px;padding-bottom:140px;background:var(--paper-2)}
+.academy-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:6vw;align-items:start;margin-top:60px}
+.academy h2{font-size:clamp(2.8rem,5.6vw,5.6rem);line-height:1.02;margin-top:22px;max-width:900px}
+.academy h2 em{color:#8e3a52}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .academy h2 em{color:var(--blush)}}
+:root[data-theme="dark"] .academy h2 em{color:var(--blush)}
+.academy-intro{margin-top:24px;max-width:470px;color:var(--text-soft);font-size:17px}
+.academy-art{position:sticky;top:110px}
+.academy-art .arch{aspect-ratio:4/5}
+.academy-art img{width:100%;height:100%;object-fit:cover}
+.badge{position:absolute;right:-26px;bottom:44px;width:132px;height:132px;border-radius:50%;background:var(--wine);color:var(--gold-soft);display:grid;place-items:center;text-align:center;font:italic 400 19px/1.1 var(--serif);box-shadow:0 20px 50px #2a0a1955}
+.badge small{display:block;font:500 11.5px/1.3 var(--sans);font-style:normal;color:#dcbcc3;margin-top:6px}
+.progress-ring{position:absolute;inset:6px}
+.progress-ring circle{fill:none;stroke-width:2}
+.lessons-top{display:flex;justify-content:space-between;align-items:center;font-size:14px;color:var(--text-soft);padding-bottom:16px;border-bottom:1px solid var(--line)}
+.lesson{width:100%;display:grid;grid-template-columns:52px 1fr 40px;align-items:center;gap:6px;padding:26px 0;border-bottom:1px solid var(--line);text-align:left;position:relative}
+.lesson::before{content:"";position:absolute;inset:0 -14px;border-radius:16px;background:var(--paper);opacity:0;transform:scaleY(.6);transition:opacity .35s,transform .45s cubic-bezier(.2,.8,.2,1);z-index:0}
+.lesson:hover::before{opacity:.6;transform:none}
+.lesson>*{position:relative;z-index:1}
+.lesson .n{font:italic 400 18px var(--serif);color:var(--text-soft)}
+.lesson strong{font:400 clamp(1.35rem,2.1vw,1.9rem)/1.2 var(--serif)}
+.lesson small{display:block;font-size:14.5px;color:var(--text-soft);margin-top:6px;max-width:470px}
+.lesson .state{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;font-size:15px;transition:background .4s,color .4s,transform .5s}
+.lesson:hover .state{transform:rotate(45deg)}
+.lesson.done .state{background:var(--wine);color:var(--gold-soft);border-color:transparent;transform:none}
+.lesson.done .n{color:#9a7445}
+.academy-done{margin-top:28px;padding:22px 26px;border-radius:18px;background:var(--wine);color:#f3e6e1;display:none}
+.academy-done.show{display:block;animation:pop .6s cubic-bezier(.2,.8,.2,1)}
+.academy-done strong{font:italic 400 22px var(--serif);color:var(--gold-soft);display:block;margin-bottom:4px}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.98)}}
+
+/* ---------- Circle (producto) ---------- */
+.circle{background:var(--wine);color:#fff;position:relative;overflow:hidden}
+.circle-pin{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding-top:110px;padding-bottom:60px;position:relative}
+#sparks{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.circle-head{text-align:center;position:relative;z-index:2}
+.circle-head h2{font-size:clamp(2.6rem,5.4vw,5.4rem);line-height:1.02;margin-top:18px}
+.circle-head h2 em{color:var(--blush)}
+.stage{position:relative;width:min(860px,100%);height:min(500px,54vh);margin-top:10px;display:grid;place-items:center;perspective:900px;z-index:2}
+.orbit{position:absolute;left:50%;top:50%;border:1px solid #c9a46f40;border-radius:50%;transform:translate(-50%,-50%) rotateX(68deg)}
+.orbit.o1{width:78%;aspect-ratio:1}
+.orbit.o2{width:56%;aspect-ratio:1;border-style:dashed;border-color:#c9a46f30}
+.orbit .bead{position:absolute;top:-4px;left:50%;width:8px;height:8px;margin-left:-4px;border-radius:50%;background:var(--gold);box-shadow:0 0 18px var(--gold)}
+.o1{animation:orb 18s linear infinite}
+.o2{animation:orb 12s linear infinite reverse}
+@keyframes orb{to{transform:translate(-50%,-50%) rotateX(68deg) rotateZ(360deg)}}
+.glow{position:absolute;width:44%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,#e7ceb066 0%,#9c3a5a33 40%,transparent 70%);filter:blur(10px)}
+.product{position:relative;height:88%;aspect-ratio:368/900;display:grid;place-items:center;transform-style:preserve-3d}
+.product img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 30px 40px #0a0105cc);transition:opacity .6s,transform .6s}
+.product img.photo{object-fit:cover;border-radius:24px;width:184%;max-width:none;left:-42%;filter:drop-shadow(0 30px 60px #0a0105cc)}
+.product img.hidden{opacity:0;transform:scale(.94)}
+.shine{position:absolute;inset:0;border-radius:14px;background:linear-gradient(105deg,transparent 35%,#ffffff33 48%,transparent 60%);mix-blend-mode:overlay;pointer-events:none;background-size:250% 100%;background-position:120% 0}
+.facts{position:absolute;inset:0;pointer-events:none;transition:opacity .5s}.stage.photo-on .facts{opacity:0}
+.fact{position:absolute;max-width:230px;font-size:14px;color:#e8d3d6}
+.fact b{display:block;font:italic 400 22px/1.15 var(--serif);color:var(--gold-soft);margin-bottom:6px}
+.fact.f1{left:2%;top:12%}.fact.f2{right:2%;top:30%;text-align:right}.fact.f3{left:6%;bottom:8%}
+.fact::before{content:"";display:block;width:34px;height:1px;background:var(--gold);margin-bottom:12px}
+.fact.f2::before{margin-left:auto}
+.tabs{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;position:relative;z-index:3;margin-top:16px}
+.tab{padding:11px 20px;border-radius:999px;border:1px solid #ffffff40;font-size:14px;transition:background .3s,color .3s}
+.tab[aria-selected="true"]{background:var(--gold-soft);color:var(--wine);border-color:transparent}
+.fine{font-size:12.5px;color:#cfaeb6;max-width:560px;text-align:center;margin:22px auto 0;position:relative;z-index:2}
+.to-room{display:inline-block;margin-top:14px;font-size:14px;color:#fff;border-bottom:1px solid var(--gold);padding-bottom:3px;position:relative;z-index:2}
+
+/* ---------- Espejo ---------- */
+.mirror{padding-top:140px;padding-bottom:140px;display:grid;grid-template-columns:1fr 1fr;gap:6vw;align-items:center;background:var(--paper)}
+.mirror h2{font-size:clamp(2.8rem,5.6vw,5.6rem);line-height:1.02;margin:22px 0 26px}
+.mirror h2 em{color:#8e3a52}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .mirror h2 em{color:var(--blush)}}
+:root[data-theme="dark"] .mirror h2 em{color:var(--blush)}
+.mirror-copy p{max-width:440px;color:var(--text-soft);font-size:17px}
+.mirror-copy .btn{margin-top:34px}
+.mirror-copy .note{margin-top:16px;font-size:13px;color:var(--text-soft)}
+.mirror-hint{margin-top:20px;font-size:14px;color:#9a7445;display:flex;align-items:center;gap:10px}
+.mirror-frame{justify-self:center;width:min(420px,82vw);aspect-ratio:3/4.1;border-radius:999px 999px 30px 30px;padding:14px;background:linear-gradient(145deg,#ecd3a5,#b08548 40%,#f3dfb6 60%,#9a7136);box-shadow:0 40px 80px #2a0a1940,inset 0 0 0 1px #fff6}
+.mirror-glass{position:relative;width:100%;height:100%;border-radius:999px 999px 20px 20px;overflow:hidden;background:linear-gradient(160deg,#f6e3e6 0%,#d9a9b6 45%,#9d5a72 100%)}
+.mirror-glass .msg{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:30px;font:400 clamp(1.7rem,3vw,2.4rem)/1.2 var(--serif);color:var(--wine)}
+.mirror-glass .msg em{display:block}
+.mirror-glass canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none;cursor:crosshair;transition:opacity 1.2s}
+.mirror-glass canvas.clear{opacity:0;pointer-events:none}
+.mirror-glass .sheen{position:absolute;inset:0;background:linear-gradient(120deg,transparent 30%,#ffffff55 45%,transparent 55%);pointer-events:none;animation:sheen 6s ease-in-out infinite}
+@keyframes sheen{0%,60%{transform:translateX(-120%)}100%{transform:translateX(120%)}}
+
+/* ---------- Room ---------- */
+.room{background:var(--wine);color:#fff;padding-top:140px;padding-bottom:140px;text-align:center;position:relative;overflow:hidden}
+.room::before{content:"";position:absolute;left:50%;top:58%;width:900px;height:900px;transform:translate(-50%,-50%);background:radial-gradient(circle,#c9a46f2e,transparent 60%);pointer-events:none;transition:opacity 1s;opacity:.4}
+.room.opened::before{opacity:1}
+.room h2{font-size:clamp(2.8rem,5.6vw,5.6rem);line-height:1.02;margin-top:18px}
+.room h2 em{color:var(--blush)}
+.room-lead{max-width:470px;margin:24px auto 0;color:#e8d3d6;font-size:17px}
+.doorway{position:relative;width:230px;height:350px;margin:64px auto 0;perspective:1200px}
+.door-light{position:absolute;inset:0;border-radius:999px 999px 6px 6px;background:radial-gradient(70% 60% at 50% 60%,#fff3d8,#e7c58e 45%,#9a6a2f);box-shadow:0 0 0 #0000;transition:box-shadow 1.2s}
+.room.opened .door-light{box-shadow:0 0 120px 30px #e7c58e66}
+.door-light .inside{position:absolute;inset:0;display:grid;place-items:center;font:italic 400 24px/1.2 var(--serif);color:var(--wine);opacity:0;transition:opacity .8s .5s}
+.room.opened .door-light .inside{opacity:1}
+.door{position:absolute;inset:0;border-radius:999px 999px 6px 6px;transform-origin:0 50%;transition:transform 1.6s cubic-bezier(.65,0,.2,1);transform-style:preserve-3d;background:linear-gradient(135deg,#5a1530,#2d0a1b);border:2px solid var(--gold);box-shadow:inset 0 0 0 10px #2a0a19,inset 0 0 0 11px #c9a46f88;cursor:pointer;display:grid;place-items:center}
+.door .mono{font:italic 400 52px/1 var(--serif);color:var(--gold);backface-visibility:hidden}
+.door .handle{position:absolute;right:22px;top:52%;width:12px;height:12px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fff3d2,#b08548);box-shadow:0 0 14px #c9a46f}
+.room.opened .door{transform:rotateY(-108deg)}
+.door-frame{position:absolute;inset:-12px;border:1px solid #c9a46f66;border-radius:999px 999px 10px 10px;pointer-events:none}
+.room-after{max-width:520px;margin:46px auto 0;overflow:hidden;max-height:0;opacity:0;transition:max-height 1s .7s,opacity .8s .9s}
+.room.opened .room-after{max-height:560px;opacity:1}
+.room-form{display:grid;gap:12px;margin-top:22px;text-align:left}
+.room-form label{font-size:13px;color:#dcbcc3}
+.room-form input{width:100%;padding:15px 18px;border-radius:14px;border:1px solid #ffffff30;background:#ffffff0d;color:#fff;font:inherit;font-size:16px}
+.room-form input::placeholder{color:#cfaeb6}
+.room-form .btn{justify-self:start;margin-top:8px}
+.form-msg{min-height:22px;font-size:14px;color:var(--gold-soft);margin-top:6px}
+.room-note{font-size:12.5px;color:#cfaeb6;margin-top:12px}
+.door-btn{margin-top:36px}
+
+/* ---------- Cierre ---------- */
+.endcap{display:grid;grid-template-columns:1fr 1fr;background:var(--paper-2);align-items:center;gap:6vw;padding-top:110px;padding-bottom:110px}
+.endcap .arch{aspect-ratio:4/5;max-width:440px;justify-self:center;width:100%}
+.endcap img{width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+.endcap h2{font-size:clamp(3rem,6.4vw,6.4rem);line-height:1;margin:20px 0 36px}
+.endcap h2 em{color:#8e3a52}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .endcap h2 em{color:var(--blush)}}
+:root[data-theme="dark"] .endcap h2 em{color:var(--blush)}
+footer{background:var(--wine);color:#e8d3d6;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;padding-top:34px;padding-bottom:34px;font-size:13.5px}
+footer .wordmark{color:#fff}
+
+/* ---------- Modales ---------- */
+.modal{position:fixed;inset:0;z-index:150;display:grid;place-items:center;padding:24px;background:#160309b8;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.modal[hidden]{display:none}
+.modal-panel{position:relative;width:min(560px,100%);max-height:calc(100vh - 48px);overflow:auto;background:var(--paper);color:var(--text);border-radius:26px;padding:44px 38px 36px;animation:rise .5s cubic-bezier(.2,.8,.2,1)}
+@keyframes rise{from{opacity:0;transform:translateY(24px) scale(.98)}}
+.modal-panel h3{font-size:clamp(1.7rem,3.4vw,2.3rem);line-height:1.15;margin:12px 0 26px}
+.close{position:absolute;top:16px;right:16px;width:42px;height:42px;border-radius:50%;border:1px solid var(--line);font-size:22px;line-height:1}
+.answers{display:grid;gap:10px}
+.answers button{text-align:left;padding:17px 20px;border-radius:16px;border:1px solid var(--line);font-size:16px;transition:background .25s,border-color .25s,transform .25s}
+.answers button:hover{border-color:#9a7445;transform:translateX(4px)}
+.answers button.right{background:#2a0a19;color:#f3e6e1;border-color:transparent}
+.answers button.wrong{opacity:.5}
+.feedback{margin-top:20px;font-size:15.5px;color:var(--text-soft);min-height:24px}
+.feedback strong{color:var(--text)}
+.next-row{margin-top:22px;display:none}
+.next-row.show{display:block}
+.mirror-panel{text-align:center;background:radial-gradient(120% 100% at 50% 0%,#f6e3e6,var(--paper) 60%)}
+.mirror-panel .answers button{text-align:center}
+.reflection{font:italic 400 clamp(1.6rem,3.4vw,2.2rem)/1.3 var(--serif)}
+
+/* ---------- Responsive ---------- */
+@media (max-width:980px){
+  .topbar nav{position:fixed;inset:0;top:calc(76px + env(safe-area-inset-top,0px));background:var(--wine);flex-direction:column;justify-content:flex-start;gap:0;padding:20px max(6vw,22px);transform:translateY(-8px);opacity:0;pointer-events:none;transition:opacity .35s,transform .35s;height:calc(100vh - 76px)}
+  .topbar nav a{font:400 30px/1 var(--serif);padding:20px 0;border-bottom:1px solid #ffffff1a;opacity:1}
+  .menu-open .topbar nav{opacity:1;transform:none;pointer-events:auto}
+  .menu-btn{display:grid}
+  .hud{display:none}
+  .hero{grid-template-columns:1fr;padding-top:120px;gap:44px;padding-bottom:90px}
+  .hero-art{width:min(330px,74vw);order:-1;margin-top:10px}
+  .hero-art .seal{left:-30px;bottom:30px;width:96px;height:96px}
+  .hero h1{margin:20px 0 22px}
+  .hero-foot{display:none}
+  .worlds{flex-direction:column;height:auto}
+  .world{flex:none;height:150px;transition:height .7s cubic-bezier(.2,.8,.2,1)}
+  .world:hover,.world:focus-visible,.world.open{flex:none;height:300px}
+  .story,.mirror,.endcap{grid-template-columns:1fr}
+  .story-art{height:560px;min-height:0}
+  .academy-grid{grid-template-columns:1fr}
+  .academy-art{position:relative;top:0;max-width:440px}
+  .badge{right:10px}
+  .facts{display:none}
+  .mirror-frame{order:-1}
+  .endcap .arch{max-width:340px}
+}
+@media (max-width:560px){
+  .worlds-sec,.story,.academy,.mirror,.room{padding-top:96px;padding-bottom:96px}
+  .story-art{height:470px}
+  .modal-panel{padding:40px 22px 26px}
+  .lesson{grid-template-columns:40px 1fr 40px}
+  .doorway{width:200px;height:300px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition-duration:.01ms!important}
+}
+</style>
+</head>
+<body>
+
+<div id="intro" aria-label="Bienvenida">
+  <div class="curtain top"></div>
+  <div class="curtain bottom"></div>
+  <div class="intro-inner">
+    <p class="intro-sub" data-i="sub">Bienvenida a una nueva forma de descubrir</p>
+    <div class="intro-logo" aria-label="DIVA E">
+      <span class="ch"><span>D</span></span><span class="ch"><span>I</span></span><span class="ch"><span>V</span></span><span class="ch"><span>A</span></span><span class="ch e"><span>E</span></span>
+    </div>
+    <div class="intro-rule"></div>
+    <div class="intro-actions">
+      <button class="btn btn-gold" id="enter">Entrar al universo <span class="arrow">↗</span></button>
+      <button class="intro-skip" id="skip">Ir directamente al sitio</button>
+    </div>
+  </div>
+</div>
+
+<div class="progress" id="progress"></div>
+<div class="cursor" id="cursor"></div><div class="cursor-dot" id="cursorDot"></div>
+
+<header class="topbar" id="topbar">
+  <div class="topbar-in wrap">
+    <a class="wordmark" href="#inicio" aria-label="DIVA E, ir al inicio">DIVA <i>E</i></a>
+    <nav id="nav" aria-label="Navegación principal">
+      <a href="#historia">Conoce a Diva</a>
+      <a href="#academia">Diva Academy</a>
+      <a href="#circle">Diva Circle</a>
+      <a href="#espejo">El espejo</a>
+      <a href="#room">Diva Room</a>
+    </nav>
+    <button class="menu-btn" id="menuBtn" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav"><span></span></button>
+  </div>
+</header>
+
+<nav class="hud" id="hud" aria-label="Universos">
+  <a href="#historia" data-sec="historia"><span class="lbl">Conoce a Diva</span><span class="dot"></span></a>
+  <a href="#academia" data-sec="academia"><span class="lbl">Diva Academy</span><span class="dot"></span></a>
+  <a href="#circle" data-sec="circle"><span class="lbl">Diva Circle</span><span class="dot"></span></a>
+  <a href="#espejo" data-sec="espejo"><span class="lbl">El espejo</span><span class="dot"></span></a>
+  <a href="#room" data-sec="room"><span class="lbl">Diva Room</span><span class="dot"></span></a>
+</nav>
+
+<main>
+<section id="inicio" class="hero wrap" data-theme-sec="dark">
+  <div class="hero-copy">
+    <p class="kicker h-in">Bienvenida al universo DIVA E</p>
+    <h1>
+      <span class="line-mask"><span class="h-line">La ciencia.</span></span>
+      <span class="line-mask"><span class="h-line">La belleza.</span></span>
+      <span class="line-mask"><span class="h-line"><em>El ser.</em></span></span>
+    </h1>
+    <p class="h-in">Una forma diferente de encontrarte con el conocimiento, la estética y lo que te hace única.</p>
+    <div class="hero-cta h-in">
+      <a class="btn btn-gold" href="#universos">Comienza a explorar <span class="arrow">↓</span></a>
+      <span class="scroll-hint"><i></i>Desliza para descubrir</span>
+    </div>
+  </div>
+  <div class="hero-art" id="heroArt">
+    <div class="halo"></div>
+    <div class="arch"><img src="assets/hero.webp" alt="Diva Elisa Bustamante sonriendo en su espacio de trabajo"></div>
+    <div class="seal" aria-hidden="true">
+      <svg viewBox="0 0 120 120"><defs><path id="circ" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/></defs><circle cx="60" cy="60" r="58" fill="#2a0a19" stroke="#c9a46f" stroke-width=".6"/><text font-family="DM Sans, sans-serif" font-size="9.4" letter-spacing="2.6" fill="#e7ceb0"><textPath href="#circ">CIENCIA ✦ BELLEZA ✦ SER ✦ DIVA E ✦ </textPath></text></svg>
+      <b>DE</b>
+    </div>
+  </div>
+  <div class="hero-foot wrap"><span>Un universo creado por Diva Elisa Bustamante</span><span>Ciencia, belleza y ser</span></div>
+</section>
+
+<section class="marquee" aria-label="Manifiesto">
+  <div class="marquee-track" id="marquee">
+    <span>La ciencia</span><span>La belleza</span><span>El ser</span><span>La ciencia</span><span>La belleza</span><span>El ser</span><span>La ciencia</span><span>La belleza</span><span>El ser</span><span>La ciencia</span><span>La belleza</span><span>El ser</span>
+  </div>
+</section>
+
+<section id="universos" class="worlds-sec wrap on-light">
+  <div class="worlds-head">
+    <div>
+      <p class="kicker">Un universo, cinco formas de vivirlo</p>
+      <h2 class="reveal-title">Hay mucho más<br>por <em>descubrir.</em></h2>
+    </div>
+    <p>Cada espacio guarda una historia, una idea y una experiencia. Pasa el cursor o toca uno para asomarte.</p>
+  </div>
+  <div class="worlds" id="worlds">
+    <a class="world" href="#historia"><img src="assets/portrait2.webp" alt="" loading="lazy"><span class="w-num">01</span><span class="w-go">↗</span><div class="w-in"><h3>Conoce a Diva</h3><p class="w-desc">La mujer detrás de la visión, en cinco capítulos.</p></div></a>
+    <a class="world" href="#academia"><img src="assets/care.webp" alt="" loading="lazy"><span class="w-num">02</span><span class="w-go">↗</span><div class="w-in"><h3>Diva Academy</h3><p class="w-desc">Cinco experiencias para aprender con criterio.</p></div></a>
+    <a class="world vial-bg" href="#circle"><img src="assets/vial.webp" alt="" loading="lazy"><span class="w-num">03</span><span class="w-go">↗</span><div class="w-in"><h3>Diva Circle</h3><p class="w-desc">El universo HidraRegen 3D.</p></div></a>
+    <a class="world" href="#espejo"><img src="assets/portrait.webp" alt="" loading="lazy"><span class="w-num">04</span><span class="w-go">↗</span><div class="w-in"><h3>El espejo</h3><p class="w-desc">Una pausa para mirarte desde otro lugar.</p></div></a>
+    <a class="world" href="#room"><img src="assets/package.webp" alt="" loading="lazy"><span class="w-num">05</span><span class="w-go">↗</span><div class="w-in"><h3>Diva Room</h3><p class="w-desc">La puerta para quienes quieren ir más allá.</p></div></a>
+  </div>
+</section>
+
+<section id="historia" class="story wrap on-light" data-sec>
+  <div class="story-copy">
+    <p class="kicker">Universo 01 · La historia</p>
+    <h2 class="reveal-title">No es solo<br>lo que haces.<br><em>Es quién eres.</em></h2>
+    <p class="story-lead">Te presentamos a <strong>Diva Elisa Bustamante</strong>: profesional de la estética, educadora y emprendedora. Una mujer que une conocimiento técnico y sensibilidad humana en su forma de entender la belleza.</p>
+    <div class="chapters" id="chapters"></div>
+    <small class="draft">Textos narrativos preliminares, sujetos a revisión de Diva Elisa Bustamante.</small>
+  </div>
+  <div class="story-art">
+    <div class="arch a1"><img class="par" src="assets/portrait.webp" alt="Retrato de Diva Elisa Bustamante" loading="lazy"></div>
+    <div class="arch a2"><img class="par" src="assets/portrait2.webp" alt="Diva Elisa Bustamante en su espacio" loading="lazy"></div>
+    <span class="stamp">Conoce a la mujer<br>detrás de la marca ✳</span>
+  </div>
+</section>
+
+<section id="academia" class="academy wrap on-light" data-sec>
+  <p class="kicker">Universo 02 · Diva Academy</p>
+  <h2 class="reveal-title">El conocimiento también puede <em>emocionarte.</em></h2>
+  <p class="academy-intro">Una academia que no se limita a explicar: te invita a explorar, cuestionar y descubrir. Completa las cinco experiencias.</p>
+  <div class="academy-grid">
+    <div class="academy-art">
+      <div class="arch"><img class="par" src="assets/care.webp" alt="Diva Elisa Bustamante en un momento de cuidado facial" loading="lazy"></div>
+      <div class="badge" aria-live="polite">
+        <svg class="progress-ring" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="56" stroke="#ffffff1f"/><circle id="ring" cx="60" cy="60" r="56" stroke="#c9a46f" stroke-dasharray="351.86" stroke-dashoffset="351.86" stroke-linecap="round" transform="rotate(-90 60 60)" style="transition:stroke-dashoffset .9s cubic-bezier(.2,.8,.2,1)"/></svg>
+        <span><span id="doneCount">0</span> de 5<small>experiencias</small></span>
+      </div>
+    </div>
+    <div>
+      <div class="lessons-top"><span>Cinco experiencias para comenzar</span><span>2 minutos cada una</span></div>
+      <div id="lessons"></div>
+      <div class="academy-done" id="academyDone"><strong>Completaste Diva Academy.</strong>Ahora miras la belleza con más criterio. Así empieza todo.</div>
+    </div>
+  </div>
+</section>
+
+<section id="circle" class="circle" data-sec data-theme-sec="dark">
+  <div class="circle-pin wrap" id="circlePin">
+    <canvas id="sparks" aria-hidden="true"></canvas>
+    <div class="circle-head">
+      <p class="kicker">Universo 03 · The Diva Circle</p>
+      <h2 class="reveal-title">Una nueva dimensión<br><em>de la experiencia.</em></h2>
+    </div>
+    <div class="stage" id="stage">
+      <div class="orbit o1"><span class="bead"></span></div>
+      <div class="orbit o2"><span class="bead"></span></div>
+      <div class="glow"></div>
+      <div class="product" id="product">
+        <img id="pVial" src="assets/vial.webp" alt="Vial de HidraRegen 3D">
+        <img id="pPackage" class="photo hidden" src="assets/package.webp" alt="Presentación de HidraRegen 3D" loading="lazy">
+        <img id="pFounder" class="photo hidden" src="assets/founder-product.webp" alt="Diva Elisa Bustamante con HidraRegen 3D" loading="lazy">
+        <span class="shine" id="shine"></span>
+      </div>
+      <div class="facts">
+        <p class="fact f1"><b>Su identidad</b>Ámbar, oro y el monograma DE: una pieza pensada para reconocerse a primera vista.</p>
+        <p class="fact f2"><b>Su universo</b>Nace de la visión de Diva Elisa: unir ciencia, belleza y ser.</p>
+        <p class="fact f3"><b>Su presentación</b>Un estuche que se siente como un regalo, no como un frasco más.</p>
+      </div>
+    </div>
+    <div class="tabs" role="tablist" aria-label="Ver HidraRegen 3D">
+      <button class="tab" role="tab" aria-selected="true" data-p="pVial">El vial</button>
+      <button class="tab" role="tab" aria-selected="false" data-p="pPackage">Su presentación</button>
+      <button class="tab" role="tab" aria-selected="false" data-p="pFounder">Diva y su creación</button>
+    </div>
+    <p class="fine">El contenido técnico, las indicaciones y los resultados se publicarán únicamente tras verificar la documentación y las autorizaciones correspondientes.</p>
+    <a class="to-room" href="#room">¿Te interesa distribuirlo? Conoce Diva Room ↗</a>
+  </div>
+</section>
+
+<section id="espejo" class="mirror wrap on-light" data-sec>
+  <div class="mirror-copy">
+    <p class="kicker">Universo 04 · El espejo</p>
+    <h2 class="reveal-title">¿Y si hoy te<br>miraras de<br><em>otra forma?</em></h2>
+    <p>Una experiencia para detenerte un instante y pensar en lo que verdaderamente valoras de ti.</p>
+    <p class="mirror-hint" id="mirrorHint">✧ Desempaña el espejo con el cursor o con tu dedo</p>
+    <button class="btn btn-wine" id="mirrorStart">Mirarme desde otro lugar <span class="arrow">↗</span></button>
+    <p class="note">No analizamos tu rostro ni evaluamos tu apariencia.</p>
+  </div>
+  <div class="mirror-frame">
+    <div class="mirror-glass" id="mirrorGlass">
+      <div class="msg"><span>La belleza<br>también habita<em>en tu historia.</em></span></div>
+      <span class="sheen"></span>
+      <canvas id="fog" aria-label="Espejo empañado: pasa el cursor o el dedo para desempañarlo" role="img"></canvas>
+    </div>
+  </div>
+</section>
+
+<section id="room" class="room wrap" data-sec data-theme-sec="dark">
+  <p class="kicker">Universo 05 · The Diva Room</p>
+  <h2 class="reveal-title">Algunas puertas<br>se abren con<br><em>una visión.</em></h2>
+  <p class="room-lead">Un espacio pensado para quienes quieren conocer las oportunidades de distribución de HidraRegen 3D.</p>
+  <div class="doorway">
+    <div class="door-frame"></div>
+    <div class="door-light"><span class="inside">Bienvenida<br>al Room</span></div>
+    <button class="door" id="door" aria-label="Abrir la puerta de Diva Room"><span class="mono">DE</span><span class="handle"></span></button>
+  </div>
+  <button class="btn btn-gold door-btn" id="doorBtn">Abrir la puerta <span class="arrow">↗</span></button>
+  <div class="room-after" id="roomAfter">
+    <p class="kicker">Acceso privado · Próximamente</p>
+    <p class="room-lead" style="margin-top:12px">Estamos preparando este espacio. Déjanos tus datos y serás de las primeras en entrar.</p>
+    <form class="room-form" id="roomForm" novalidate>
+      <label for="fName">Tu nombre</label>
+      <input id="fName" name="nombre" autocomplete="name" placeholder="Nombre y apellido" required>
+      <label for="fCity">Tu ciudad</label>
+      <input id="fCity" name="ciudad" autocomplete="address-level2" placeholder="Ciudad" required>
+      <button class="btn btn-gold" type="submit">Quiero recibir información <span class="arrow">↗</span></button>
+      <p class="form-msg" id="formMsg" aria-live="polite"></p>
+    </form>
+    <p class="room-note">Vista previa: este formulario se conectará al canal oficial de DIVA E antes de publicarse.</p>
+  </div>
+</section>
+
+<section class="endcap wrap on-light">
+  <div class="arch"><img class="par" src="assets/hero.webp" alt="Diva Elisa Bustamante, fundadora de DIVA E" loading="lazy"></div>
+  <div>
+    <p class="kicker">Seguimos construyendo</p>
+    <h2 class="reveal-title">Tu próxima era<br><em>comienza aquí.</em></h2>
+    <a href="#inicio" class="btn btn-wine">Volver al inicio <span class="arrow">↑</span></a>
+  </div>
+</section>
+</main>
+
+<footer class="wrap">
+  <a href="#inicio" class="wordmark">DIVA <i>E</i></a>
+  <span>Donde la ciencia, la belleza y el ser se encuentran.</span>
+  <span>© <span id="year"></span> DIVA E</span>
+</footer>
+
+<div class="modal" id="quizModal" role="dialog" aria-modal="true" aria-labelledby="qTitle" hidden>
+  <div class="modal-panel">
+    <button class="close" data-close aria-label="Cerrar">×</button>
+    <p class="kicker" id="qKicker">Diva Academy</p>
+    <h3 id="qTitle"></h3>
+    <div class="answers" id="qAnswers"></div>
+    <p class="feedback" id="qFeedback" aria-live="polite"></p>
+    <div class="next-row" id="qNext"><button class="btn btn-wine" id="qNextBtn">Siguiente experiencia <span class="arrow">↗</span></button></div>
+  </div>
+</div>
+
+<div class="modal" id="mirrorModal" role="dialog" aria-modal="true" aria-labelledby="mTitle" hidden>
+  <div class="modal-panel mirror-panel">
+    <button class="close" data-close aria-label="Cerrar">×</button>
+    <p class="kicker">El espejo · Un momento para ti</p>
+    <div id="mQ">
+      <h3 id="mTitle">¿Qué te gustaría reconocer más en ti?</h3>
+      <div class="answers">
+        <button data-r="fortaleza">Mi fortaleza</button>
+        <button data-r="autenticidad">Mi autenticidad</button>
+        <button data-r="crecimiento">Mi capacidad de crecer</button>
+      </div>
+    </div>
+    <div id="mR" hidden>
+      <h3 class="reflection" id="mText"></h3>
+      <p style="color:var(--text-soft)">Tu historia tiene valor, incluso en los días en que se te olvida.</p>
+      <button class="btn btn-wine" id="mAgain" style="margin-top:26px">Volver a mirarme <span class="arrow">↻</span></button>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const fine=matchMedia('(pointer: fine)').matches;
+const G=window.gsap, ST=window.ScrollTrigger;
+if(G&&ST) G.registerPlugin(ST);
+$('#year').textContent=new Date().getFullYear();
+
+/* ---------- Intro ---------- */
+const intro=$('#intro');
+let seen=false;try{seen=sessionStorage.getItem('divaE')==='1'}catch(e){}
+function heroIn(){
+  if(!G||reduce) return;
+  G.from('.h-line',{yPercent:110,duration:1.2,ease:'expo.out',stagger:.12});
+  G.from('.h-in',{opacity:0,y:24,duration:1,ease:'power3.out',stagger:.12,delay:.35});
+  G.from('#heroArt .arch',{clipPath:'inset(100% 0 0 0 round 999px 999px 26px 26px)',duration:1.6,ease:'expo.inOut'});
+  G.from('#heroArt .arch img',{scale:1.45,duration:2.4,ease:'expo.out'});
+  G.from('#heroArt .halo',{opacity:0,scale:.9,duration:1.6,ease:'power3.out',delay:.5});
+  G.from('#heroArt .seal',{opacity:0,scale:.6,rotate:-60,duration:1.4,ease:'back.out(1.6)',delay:.9});
+}
+function enter(){
+  try{sessionStorage.setItem('divaE','1')}catch(e){}
+  document.body.classList.remove('locked');
+  if(!G||reduce){intro.classList.add('gone');heroIn();return}
+  const tl=G.timeline({onComplete:()=>intro.classList.add('gone')});
+  tl.to('.intro-inner',{opacity:0,scale:.96,duration:.5,ease:'power2.in'})
+    .to('#intro .curtain.top',{yPercent:-100,duration:1.2,ease:'expo.inOut'},'-=.1')
+    .to('#intro .curtain.bottom',{yPercent:100,duration:1.2,ease:'expo.inOut'},'<')
+    .add(heroIn,'-=.85');
+}
+if(seen){intro.classList.add('gone');heroIn()}
+else{
+  document.body.classList.add('locked');
+  if(G&&!reduce){
+    G.timeline()
+     .from('.intro-logo .ch>span',{yPercent:110,duration:1.1,ease:'expo.out',stagger:.08,delay:.2})
+     .from('.intro-logo .e>span',{rotate:-12,opacity:0,duration:1,ease:'expo.out'},'-=.7')
+     .from('.intro-rule',{scaleX:0,duration:1,ease:'expo.inOut'},'-=.6')
+     .from('.intro-sub',{opacity:0,y:10,duration:.8},'-=.7')
+     .from('.intro-actions',{opacity:0,y:16,duration:.8,ease:'power3.out'},'-=.4');
+  }
+}
+$('#enter').addEventListener('click',enter);
+$('#skip').addEventListener('click',enter);
+
+/* ---------- Header y menú ---------- */
+const topbar=$('#topbar');
+const onScroll=()=>{topbar.classList.toggle('solid',scrollY>40)};
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+$('#menuBtn').addEventListener('click',()=>{const o=document.documentElement.classList.toggle('menu-open');$('#menuBtn').setAttribute('aria-expanded',o)});
+$$('#nav a').forEach(a=>a.addEventListener('click',()=>{document.documentElement.classList.remove('menu-open');$('#menuBtn').setAttribute('aria-expanded','false')}));
+
+/* ---------- Cursor ---------- */
+if(fine&&!reduce){
+  const c=$('#cursor'),d=$('#cursorDot');let x=-100,y=-100,cx=-100,cy=-100;
+  addEventListener('pointermove',e=>{x=e.clientX;y=e.clientY;c.classList.add('on');d.classList.add('on');d.style.transform=`translate(${x}px,${y}px)`},{passive:true});
+  (function loop(){cx+=(x-cx)*.18;cy+=(y-cy)*.18;c.style.transform=`translate(${cx}px,${cy}px)`;requestAnimationFrame(loop)})();
+  document.addEventListener('pointerover',e=>{c.classList.toggle('big',!!e.target.closest('a,button,.world,input,canvas'))});
+  document.addEventListener('pointerleave',()=>{c.classList.remove('on');d.classList.remove('on')});
+}
+
+/* ---------- Progreso y HUD ---------- */
+const hud=$('#hud'),bar=$('#progress');
+const secs=$$('[data-sec]');
+function updHud(){
+  const h=document.documentElement.scrollHeight-innerHeight;bar.style.transform=`scaleX(${h>0?scrollY/h:0})`;
+  hud.classList.toggle('show',scrollY>innerHeight*.8);
+  let cur=null;secs.forEach(s=>{const r=s.getBoundingClientRect();if(r.top<innerHeight*.5&&r.bottom>innerHeight*.5)cur=s});
+  $$('#hud a').forEach(a=>a.classList.toggle('active',cur&&a.dataset.sec===cur.id));
+  const darkNow=$$('[data-theme-sec="dark"]').some(s=>{const r=s.getBoundingClientRect();return r.top<innerHeight*.5&&r.bottom>innerHeight*.5});
+  const dm=getComputedStyle(document.documentElement).colorScheme==='dark';
+  hud.classList.toggle('dark',darkNow||dm);
+}
+addEventListener('scroll',updHud,{passive:true});addEventListener('resize',updHud);updHud();
+
+/* ---------- Mundos (tap en móvil) ---------- */
+$$('.world').forEach(w=>w.addEventListener('click',e=>{
+  if(matchMedia('(max-width:980px)').matches&&!w.classList.contains('open')){e.preventDefault();$$('.world').forEach(x=>x.classList.remove('open'));w.classList.add('open')}
+}));
+
+/* ---------- Historia ---------- */
+const chapters=[
+ ['Su esencia','La historia comienza con una forma de entender la belleza: mirar más allá de la apariencia y reconocer a la persona.'],
+ ['Su formación','Diva Elisa ha construido su trayectoria alrededor de la formación en cosmetología, cosmiatría, dermatocosmiatría, tricoscosmiatría y enfermería.'],
+ ['Su vocación','Su vocación educativa se resume en una idea: el conocimiento especializado adquiere valor cuando puede compartirse con claridad y responsabilidad.'],
+ ['Su faceta emprendedora','Su dimensión empresarial reúne una visión de marca, educación y desarrollo de nuevos proyectos en el sector estético.'],
+ ['Lo que viene','DIVA E representa una etapa para conectar ciencia, belleza y ser. Una historia que sigue escribiéndose.']];
+const chWrap=$('#chapters');
+chapters.forEach((c,i)=>{
+  const b=document.createElement('button');b.className='chapter';b.setAttribute('aria-expanded','false');b.id='chb'+i;b.setAttribute('aria-controls','chp'+i);
+  b.innerHTML=`<span class="n">0${i+1}</span><span>${c[0]}</span><span class="plus" aria-hidden="true"></span>`;
+  const p=document.createElement('div');p.className='chapter-panel';p.id='chp'+i;p.setAttribute('role','region');p.setAttribute('aria-labelledby','chb'+i);p.innerHTML=`<p>${c[1]}</p>`;
+  chWrap.append(b,p);
+  b.addEventListener('click',()=>openCh(i));
+});
+function openCh(i){
+  $$('.chapter').forEach((b,j)=>{const p=$('#chp'+j),on=j===i&&!b.classList.contains('active');
+    b.classList.toggle('active',on);b.setAttribute('aria-expanded',on);p.style.height=on?p.scrollHeight+'px':'0px'});
+}
+openCh(0);
+addEventListener('resize',()=>{$$('.chapter.active').forEach(b=>{const p=b.nextElementSibling;p.style.height=p.scrollHeight+'px'})});
+
+/* ---------- Academia ---------- */
+const lessons=[
+ {t:'¿Qué tanto conoces tu piel?',d:'Conocer sus características es el primer paso para cuidarla de forma responsable.',q:'¿La misma rutina funciona para todas las pieles?',a:[['Sí, si los productos son de buena calidad.',0],['No: debe adaptarse a las características y necesidades de cada persona.',1]],ok:'Las necesidades de la piel varían, así que las recomendaciones deben individualizarse.',no:'Una rutina adecuada depende de cada persona, no solo de la calidad del producto.'},
+ {t:'Mitos de la estética',d:'Aprende a distinguir lo popular de lo que merece verificarse con evidencia.',q:'“Si un producto arde o pica, es porque está funcionando.” ¿Mito o realidad?',a:[['Realidad: el ardor es señal de efecto.',0],['Mito: el ardor puede ser una señal de irritación.',1]],ok:'Una sensación de ardor no confirma eficacia; puede indicar irritación y conviene consultar a una profesional.',no:'Es un mito frecuente. El ardor no prueba que algo funcione y puede ser una señal de irritación.'},
+ {t:'El lenguaje de los ingredientes',d:'Conocer un ingrediente no es lo mismo que demostrar la eficacia de un producto.',q:'Si un producto contiene un ingrediente famoso, ¿ya está demostrado que funciona?',a:[['Sí, el ingrediente garantiza el resultado.',0],['No: también influyen la concentración, la formulación y la evidencia del producto terminado.',1]],ok:'Un ingrediente es solo una parte. El producto completo es lo que debe respaldarse.',no:'Un nombre conocido en la etiqueta no basta: importan la concentración, la fórmula y la evidencia.'},
+ {t:'Las decisiones detrás de un protocolo',d:'Cómo se formulan preguntas, se reconocen límites y se pide una valoración especializada.',q:'Ante una reacción inesperada en la piel, ¿qué es lo más responsable?',a:[['Continuar el tratamiento hasta que la piel se acostumbre.',0],['Suspender y buscar una valoración profesional.',1]],ok:'Reconocer cuándo parar y consultar también es parte del criterio profesional.',no:'Lo responsable es suspender y pedir una valoración profesional antes de continuar.'},
+ {t:'La belleza con criterio',d:'Expectativas realistas, comunicación responsable y decisiones informadas.',q:'¿Qué describe mejor una expectativa realista?',a:[['Los resultados son iguales para todas y se ven de inmediato.',0],['Los resultados varían según cada persona y requieren constancia y seguimiento.',1]],ok:'La belleza con criterio parte de entender que cada proceso es personal.',no:'Cada piel responde distinto; la constancia y el seguimiento hacen la diferencia.'}];
+const done=new Set();const lw=$('#lessons');
+lessons.forEach((l,i)=>{
+  const b=document.createElement('button');b.className='lesson';b.dataset.i=i;
+  b.innerHTML=`<span class="n">0${i+1}</span><span><strong>${l.t}</strong><small>${l.d}</small></span><span class="state" aria-hidden="true">↗</span>`;
+  b.addEventListener('click',()=>openQuiz(i));lw.append(b);
+});
+let lastFocus=null,curQ=0;
+function openModal(id){lastFocus=document.activeElement;const m=$('#'+id);m.hidden=false;document.body.classList.add('locked');setTimeout(()=>m.querySelector('.close').focus(),50)}
+function closeModal(m){m.hidden=true;document.body.classList.remove('locked');if(lastFocus)lastFocus.focus()}
+$$('.modal').forEach(m=>{m.addEventListener('click',e=>{if(e.target===m||e.target.closest('[data-close]'))closeModal(m)})});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')$$('.modal:not([hidden])').forEach(closeModal)});
+function openQuiz(i){
+  curQ=i;const l=lessons[i];
+  $('#qKicker').textContent=`Diva Academy · Experiencia ${i+1} de 5`;$('#qTitle').textContent=l.q;$('#qFeedback').innerHTML='';$('#qNext').classList.remove('show');
+  const A=$('#qAnswers');A.innerHTML='';
+  l.a.forEach(([txt,ok])=>{const b=document.createElement('button');b.textContent=txt;b.addEventListener('click',()=>{
+    $$('#qAnswers button').forEach(x=>x.disabled=true);
+    [...A.children].forEach((x,k)=>{x.classList.add(l.a[k][1]?'right':'wrong')});
+    $('#qFeedback').innerHTML=ok?`<strong>Exacto.</strong> ${l.ok}`:`<strong>Casi.</strong> ${l.no}`;
+    markDone(i);
+    const nxt=lessons.findIndex((_,k)=>!done.has(k));
+    if(nxt>-1){$('#qNextBtn').onclick=()=>openQuiz(nxt);$('#qNext').classList.add('show')}
+  });A.append(b)});
+  if($('#quizModal').hidden)openModal('quizModal');
+}
+function markDone(i){
+  done.add(i);$$('.lesson')[i].classList.add('done');$$('.lesson')[i].querySelector('.state').textContent='✓';
+  $('#doneCount').textContent=done.size;$('#ring').style.strokeDashoffset=351.86*(1-done.size/5);
+  if(done.size===5)$('#academyDone').classList.add('show');
+}
+
+/* ---------- Producto: pestañas, tilt y chispas ---------- */
+$$('.tab').forEach(t=>t.addEventListener('click',()=>{
+  $$('.tab').forEach(x=>x.setAttribute('aria-selected',x===t));
+  $('#stage').classList.toggle('photo-on',t.dataset.p!=='pVial');['pVial','pPackage','pFounder'].forEach(id=>$('#'+id).classList.toggle('hidden',id!==t.dataset.p));
+}));
+const stage=$('#stage'),prod=$('#product');
+if(fine&&!reduce){
+  stage.addEventListener('pointermove',e=>{const r=stage.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+    prod.querySelectorAll('img').forEach(im=>im.style.transform=`rotateY(${x*18}deg) rotateX(${-y*10}deg) translateZ(20px)`)});
+  stage.addEventListener('pointerleave',()=>prod.querySelectorAll('img').forEach(im=>im.style.transform=''));
+}
+(function sparks(){
+  const cv=$('#sparks'),ctx=cv.getContext('2d');if(!ctx)return;
+  let W,H,dpr,P=[],run=false;
+  function size(){dpr=Math.min(2,devicePixelRatio||1);W=cv.clientWidth;H=cv.clientHeight;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
+    P=Array.from({length:Math.round(W*H/9000)},()=>({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.6+.3,s:Math.random()*.35+.08,a:Math.random()*Math.PI*2}))}
+  function draw(){if(!run)return;ctx.clearRect(0,0,W,H);
+    for(const p of P){p.y-=p.s;p.a+=.02;if(p.y<-5){p.y=H+5;p.x=Math.random()*W}
+      const o=.35+Math.sin(p.a)*.3;ctx.beginPath();ctx.arc(p.x+Math.sin(p.a*.6)*6,p.y,p.r,0,7);ctx.fillStyle=`rgba(231,206,176,${o})`;ctx.fill()}
+    requestAnimationFrame(draw)}
+  size();addEventListener('resize',size);
+  if(reduce){run=true;draw();run=false;return}
+  new IntersectionObserver(es=>{es.forEach(e=>{const was=run;run=e.isIntersecting;if(run&&!was)draw()})}).observe($('#circle'));
+})();
+
+/* ---------- Espejo empañado ---------- */
+(function fog(){
+  const cv=$('#fog'),glass=$('#mirrorGlass'),ctx=cv.getContext('2d');if(!ctx)return;
+  let W,H,dpr,cleared=false,last=null,checkT=0;
+  function paint(){
+    dpr=Math.min(2,devicePixelRatio||1);W=glass.clientWidth;H=glass.clientHeight;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
+    ctx.globalCompositeOperation='source-over';
+    const g=ctx.createLinearGradient(0,0,W,H);g.addColorStop(0,'rgba(248,236,238,1)');g.addColorStop(1,'rgba(226,196,204,1)');
+    ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+    for(let i=0;i<260;i++){ctx.beginPath();ctx.arc(Math.random()*W,Math.random()*H,Math.random()*2.2+.4,0,7);ctx.fillStyle=`rgba(255,255,255,${Math.random()*.55})`;ctx.fill()}
+    ctx.fillStyle='rgba(42,10,25,.42)';ctx.font=`italic 400 ${Math.max(18,W*.055)}px 'Playfair Display', Georgia, serif`;ctx.textAlign='center';ctx.fillText('Desempáñame',W/2,H/2);
+  }
+  function wipe(x,y){
+    ctx.globalCompositeOperation='destination-out';
+    const r=Math.max(34,W*.11);
+    const draw=(px,py)=>{const g=ctx.createRadialGradient(px,py,0,px,py,r);g.addColorStop(0,'rgba(0,0,0,1)');g.addColorStop(.6,'rgba(0,0,0,.85)');g.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=g;ctx.beginPath();ctx.arc(px,py,r,0,7);ctx.fill()};
+    if(last){const dx=x-last.x,dy=y-last.y,n=Math.ceil(Math.hypot(dx,dy)/(r*.35));for(let i=1;i<=n;i++)draw(last.x+dx*i/n,last.y+dy*i/n)}else draw(x,y);
+    last={x,y};
+    const now=performance.now();if(now-checkT>250){checkT=now;check()}
+  }
+  function check(){
+    const d=ctx.getImageData(0,0,cv.width,cv.height).data;let t=0,c=0;
+    for(let i=3;i<d.length;i+=4*97){t++;if(d[i]<60)c++}
+    if(!cleared&&c/t>.42)clearAll();
+  }
+  function clearAll(){cleared=true;cv.classList.add('clear');$('#mirrorHint').textContent='✧ Ahí estás. Ahora, mírate desde otro lugar.'}
+  const pos=e=>{const r=cv.getBoundingClientRect();return[e.clientX-r.left,e.clientY-r.top]};
+  cv.addEventListener('pointermove',e=>{if(cleared)return;if(e.pointerType==='mouse'||e.buttons){wipe(...pos(e))}});
+  cv.addEventListener('pointerdown',e=>{if(cleared)return;last=null;wipe(...pos(e))});
+  cv.addEventListener('pointerleave',()=>last=null);cv.addEventListener('pointerup',()=>last=null);
+  paint();addEventListener('resize',()=>{if(!cleared)paint()});
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(()=>{if(!cleared)paint()});
+  if(reduce){$('#mirrorHint').textContent='✧ Toca el espejo para desempañarlo';cv.addEventListener('click',clearAll)}
+  $('#mirrorStart').addEventListener('click',()=>{if(!cleared)clearAll();$('#mQ').hidden=false;$('#mR').hidden=true;openModal('mirrorModal')});
+})();
+const thoughts={fortaleza:'Has atravesado días difíciles. Tu fortaleza también merece ser vista.',autenticidad:'No tienes que parecerte a nadie para tener algo único que ofrecer.',crecimiento:'Tu historia no está terminada. También eres todo lo que estás aprendiendo.'};
+$$('[data-r]').forEach(b=>b.addEventListener('click',()=>{$('#mQ').hidden=true;$('#mR').hidden=false;$('#mText').textContent=thoughts[b.dataset.r];$('#mAgain').focus()}));
+$('#mAgain').addEventListener('click',()=>{$('#mQ').hidden=false;$('#mR').hidden=true});
+
+/* ---------- Diva Room ---------- */
+const room=$('#room');
+function openDoor(){if(room.classList.contains('opened'))return;room.classList.add('opened');$('#doorBtn').style.display='none';$('#door').setAttribute('aria-label','Puerta abierta');setTimeout(()=>{if(ST)ST.refresh()},1800)}
+$('#door').addEventListener('click',openDoor);$('#doorBtn').addEventListener('click',openDoor);
+$('#roomForm').addEventListener('submit',e=>{e.preventDefault();const n=$('#fName').value.trim(),c=$('#fCity').value.trim();
+  if(!n||!c){$('#formMsg').textContent='Escribe tu nombre y tu ciudad para continuar.';(n?$('#fCity'):$('#fName')).focus();return}
+  $('#formMsg').textContent=`Gracias, ${n.split(' ')[0]}. En la versión publicada, aquí quedará registrado tu interés.`;});
+function scrollAnims(){
+/* ---------- Animaciones de scroll ---------- */
+if(G&&ST&&!reduce){
+  // Títulos: entrada por líneas
+  $$('.reveal-title').forEach(t=>{
+    G.from(t,{y:60,opacity:0,duration:1.2,ease:'expo.out',scrollTrigger:{trigger:t,start:'top 85%'}});
+  });
+  // Parallax en fotos
+  $$('.par').forEach(img=>{
+    G.fromTo(img,{yPercent:-8},{yPercent:4,ease:'none',scrollTrigger:{trigger:img.parentElement,start:'top bottom',end:'bottom top',scrub:true}});
+  });
+  G.to('#heroArt .arch img',{yPercent:10,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+  G.to('.hero-copy',{yPercent:-12,opacity:.2,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+  // Mundos en cascada
+  G.from('.world',{y:80,opacity:0,duration:1.1,ease:'expo.out',stagger:.09,scrollTrigger:{trigger:'#worlds',start:'top 82%'}});
+  // Marquee con velocidad del scroll
+  const tr=$('#marquee');let pos=0,vel=0,last=scrollY;
+  (function mq(){const dy=scrollY-last;last=scrollY;vel+=(dy*.25-vel)*.1;pos-=(.6+Math.abs(vel));const w=tr.scrollWidth/2;if(-pos>w)pos+=w;tr.style.transform=`translateX(${pos}px) skewX(${Math.max(-8,Math.min(8,-vel*.6))}deg)`;requestAnimationFrame(mq)})();
+  // Escena del producto
+  const mm=G.matchMedia();
+  mm.add('(min-width: 981px)',()=>{
+    const tl=G.timeline({scrollTrigger:{trigger:'#circlePin',start:'top top',end:'+=160%',pin:true,scrub:1}});
+    tl.fromTo('#product',{scale:.72,rotateY:-28,y:40},{scale:1,rotateY:0,y:0,ease:'power2.out',duration:1})
+      .fromTo('#shine',{backgroundPosition:'120% 0'},{backgroundPosition:'-40% 0',duration:1},0)
+      .from('.fact.f1',{opacity:0,x:-40,duration:.4},.25)
+      .from('.fact.f2',{opacity:0,x:40,duration:.4},.5)
+      .from('.fact.f3',{opacity:0,x:-40,duration:.4},.75)
+      .to('#product',{rotateY:10,duration:.6},1);
+  });
+  mm.add('(max-width: 980px)',()=>{
+    G.from('#product',{scale:.8,opacity:0,duration:1.2,ease:'expo.out',scrollTrigger:{trigger:'#stage',start:'top 80%'}});
+  });
+  // Lecciones
+  G.from('#lessons .lesson',{x:40,opacity:0,duration:.9,ease:'expo.out',stagger:.07,scrollTrigger:{trigger:'#lessons',start:'top 85%'}});
+}else{
+  const tr=$('#marquee');if(!reduce){let pos=0;(function mq(){pos-=.6;const w=tr.scrollWidth/2;if(-pos>w)pos+=w;tr.style.transform=`translateX(${pos}px)`;requestAnimationFrame(mq)})()}
+}
+
+}
+scrollAnims();
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(()=>{if(window.ScrollTrigger)ScrollTrigger.refresh()});
+addEventListener('load',()=>{if(window.ScrollTrigger)ScrollTrigger.refresh()});
+})();
+</script>
+</body>
+</html>
